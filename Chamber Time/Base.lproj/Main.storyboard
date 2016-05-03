@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -27,7 +28,7 @@
         <!--发现-->
         <scene sceneID="87b-U5-Zkp">
             <objects>
-                <viewController id="Txx-La-jbj" customClass="ViewController" customModule="Chamber_Time" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Txx-La-jbj" customClass="FindingViewController" customModule="Chamber_Time" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K7r-6w-LXX"/>
                         <viewControllerLayoutGuide type="bottom" id="IZg-n5-n7t"/>
@@ -35,13 +36,114 @@
                     <view key="view" contentMode="scaleToFill" id="Tlj-dv-sua">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.78759568929672241" green="0.70236116647720337" blue="0.93544894456863403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日天气" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6O-Re-gUe">
+                                <rect key="frame" x="20" y="28" width="560" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NAr-we-Y6a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Thin" family="PingFang SC" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Luy-5d-QrD">
+                                <rect key="frame" x="20" y="68" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="4bf-MX-wAM" userLabel="height = 50"/>
+                                    <constraint firstAttribute="width" constant="100" id="7Sv-pN-hkD"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="eSG-iA-Exf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7Sv-pN-hkD"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="weather" translatesAutoresizingMaskIntoConstraints="NO" id="1wY-Ls-FxZ">
+                                <rect key="frame" x="240" y="118" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="eaI-5d-K1B"/>
+                                    <constraint firstAttribute="width" constant="120" id="yMY-U7-rfu"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="RXi-Rl-Ewh">
+                                <rect key="frame" x="20" y="268" width="560" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="心灵鸡汤" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uY7-PA-aDK">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Thin" family="PingFang SC" pointSize="25"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="m4J-1X-oIB">
+                                        <rect key="frame" x="0.0" y="50" width="560" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="Cli-hL-B5g"/>
+                                        </constraints>
+                                        <string key="text">Some people come into our lives and leave footprints on our hearts. Others come into our lives and make us wanna leave footprints on their face.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="m4J-1X-oIB" secondAttribute="trailing" id="8ng-fQ-NsM"/>
+                                    <constraint firstItem="m4J-1X-oIB" firstAttribute="leading" secondItem="RXi-Rl-Ewh" secondAttribute="leading" id="Eb7-AD-ULe"/>
+                                    <constraint firstAttribute="bottom" secondItem="m4J-1X-oIB" secondAttribute="bottom" id="Kti-DF-367"/>
+                                    <constraint firstAttribute="height" constant="150" id="v7S-nt-nGk"/>
+                                </constraints>
+                            </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vhf-X8-lgg">
+                                <rect key="frame" x="290" y="168" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="0kp-xg-rWl"/>
+                                    <constraint firstAttribute="width" constant="20" id="v2l-wr-jmV"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="气温" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gI4-0q-GKa">
+                                <rect key="frame" x="220" y="68" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1xN-OP-8xC"/>
+                                    <constraint firstAttribute="width" constant="100" id="hEd-8d-9GL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92422503232955933" green="0.97628551721572876" blue="0.97253948450088501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1wY-Ls-FxZ" firstAttribute="top" secondItem="gI4-0q-GKa" secondAttribute="bottom" id="4Ax-wj-hIt"/>
+                            <constraint firstItem="gI4-0q-GKa" firstAttribute="leading" secondItem="Luy-5d-QrD" secondAttribute="trailing" id="5AR-1r-S2c"/>
+                            <constraint firstItem="F6O-Re-gUe" firstAttribute="top" secondItem="K7r-6w-LXX" secondAttribute="bottom" constant="8" id="6eo-Od-g52"/>
+                            <constraint firstItem="gI4-0q-GKa" firstAttribute="top" secondItem="F6O-Re-gUe" secondAttribute="bottom" id="CHZ-Qz-e7p"/>
+                            <constraint firstItem="RXi-Rl-Ewh" firstAttribute="leading" secondItem="Tlj-dv-sua" secondAttribute="leadingMargin" id="KWV-s3-BJd"/>
+                            <constraint firstItem="RXi-Rl-Ewh" firstAttribute="trailing" secondItem="Tlj-dv-sua" secondAttribute="trailingMargin" id="LC3-Um-xj1"/>
+                            <constraint firstItem="RXi-Rl-Ewh" firstAttribute="top" secondItem="1wY-Ls-FxZ" secondAttribute="bottom" constant="30" id="LFU-Oc-YcH"/>
+                            <constraint firstItem="RXi-Rl-Ewh" firstAttribute="trailing" secondItem="Tlj-dv-sua" secondAttribute="trailingMargin" id="LIT-aH-qSO"/>
+                            <constraint firstItem="vhf-X8-lgg" firstAttribute="centerX" secondItem="Tlj-dv-sua" secondAttribute="centerX" id="Mg7-nO-U43"/>
+                            <constraint firstItem="F6O-Re-gUe" firstAttribute="leading" secondItem="Tlj-dv-sua" secondAttribute="leadingMargin" id="Otj-dc-bdo"/>
+                            <constraint firstItem="Luy-5d-QrD" firstAttribute="top" secondItem="F6O-Re-gUe" secondAttribute="bottom" id="QP9-dG-OqG"/>
+                            <constraint firstItem="Luy-5d-QrD" firstAttribute="leading" secondItem="Tlj-dv-sua" secondAttribute="leadingMargin" id="QqQ-IJ-8gh"/>
+                            <constraint firstItem="F6O-Re-gUe" firstAttribute="trailing" secondItem="Tlj-dv-sua" secondAttribute="trailingMargin" id="SnV-YB-MkU"/>
+                            <constraint firstItem="1wY-Ls-FxZ" firstAttribute="centerX" secondItem="Tlj-dv-sua" secondAttribute="centerX" id="jD6-j3-0bF"/>
+                            <constraint firstItem="vhf-X8-lgg" firstAttribute="top" secondItem="gI4-0q-GKa" secondAttribute="bottom" constant="50" id="le6-Xg-pPB"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="发现" image="12-eye" id="Bk2-34-187"/>
+                    <connections>
+                        <outlet property="content" destination="m4J-1X-oIB" id="KQd-cm-uNo"/>
+                        <outlet property="loadingIndicator" destination="vhf-X8-lgg" id="Nnd-sY-Lv4"/>
+                        <outlet property="location" destination="Luy-5d-QrD" id="dNY-CR-c02"/>
+                        <outlet property="temperature" destination="gI4-0q-GKa" id="jgF-o3-9Sl"/>
+                        <outlet property="weatherPic" destination="1wY-Ls-FxZ" id="lgB-jY-MKc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ttS-oM-rq1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1518" y="700"/>
+            <point key="canvasLocation" x="2041" y="609"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3fD-36-K94">
@@ -124,5 +226,6 @@
         <image name="12-eye" width="24" height="16"/>
         <image name="35-shopping-bag" width="24" height="22"/>
         <image name="83-calendar" width="23" height="25"/>
+        <image name="weather" width="150" height="150"/>
     </resources>
 </document>

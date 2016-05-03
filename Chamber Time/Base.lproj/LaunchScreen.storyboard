@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,26 +19,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pXt-MT-Ztq">
-                                <rect key="frame" x="162" y="453" width="277" height="30"/>
+                                <rect key="frame" x="20" y="450" width="560" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) 2016 YangYueyang and LiuChuang." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vg-cg-e8L">
-                                        <rect key="frame" x="0.0" y="0.0" width="277" height="15"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8X-FW-qrC">
-                                        <rect key="frame" x="0.0" y="15" width="277" height="15"/>
+                                        <rect key="frame" x="0.0" y="15" width="560" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DcE-2R-KB6"/>
+                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHAMBER TIME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbJ-LD-Gz7">
-                                <rect key="frame" x="192" y="273" width="216" height="54"/>
+                                <rect key="frame" x="180" y="282" width="240" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="Eae-FD-aaz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="USm-v7-4vi"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="zJA-cl-MWI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="30"/>
                                 <nil key="highlightedColor"/>
@@ -45,16 +50,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="pXt-MT-Ztq" secondAttribute="bottom" constant="117" id="2nR-Z5-hmr"/>
-                            <constraint firstItem="wbJ-LD-Gz7" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="253" id="9Vi-Pe-lr5"/>
-                            <constraint firstItem="wbJ-LD-Gz7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bS0-VW-UsJ"/>
-                            <constraint firstItem="pXt-MT-Ztq" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="idG-8K-9dy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pXt-MT-Ztq" secondAttribute="trailing" id="1cd-fq-8rq"/>
+                            <constraint firstItem="wbJ-LD-Gz7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DAO-Na-MQt"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="pXt-MT-Ztq" secondAttribute="bottom" constant="120" id="Rvc-8Q-vcg"/>
+                            <constraint firstItem="pXt-MT-Ztq" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="X0t-zT-Pm7"/>
+                            <constraint firstItem="wbJ-LD-Gz7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Ydy-uW-mBe"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="232" y="154"/>
+            <point key="canvasLocation" x="110" y="55"/>
         </scene>
     </scenes>
 </document>

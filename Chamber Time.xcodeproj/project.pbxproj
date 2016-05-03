@@ -13,6 +13,7 @@
 		A1A165AA1CD7370100A39E9D /* Chamber_Time.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1A165A81CD7370100A39E9D /* Chamber_Time.xcdatamodeld */; };
 		A1A165AC1CD7370100A39E9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1A165AB1CD7370100A39E9D /* Assets.xcassets */; };
 		A1A165AF1CD7370100A39E9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1A165AD1CD7370100A39E9D /* LaunchScreen.storyboard */; };
+		A1C272DC1CD8BAD4003018A1 /* FindingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C272DB1CD8BAD4003018A1 /* FindingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A1A165AB1CD7370100A39E9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1A165AE1CD7370100A39E9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1A165B01CD7370100A39E9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1C272DB1CD8BAD4003018A1 /* FindingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +60,10 @@
 			children = (
 				A1A165A11CD7370100A39E9D /* AppDelegate.swift */,
 				A1A165A31CD7370100A39E9D /* ViewController.swift */,
+				A1C272DB1CD8BAD4003018A1 /* FindingViewController.swift */,
 				A1A165A51CD7370100A39E9D /* Main.storyboard */,
-				A1A165AB1CD7370100A39E9D /* Assets.xcassets */,
 				A1A165AD1CD7370100A39E9D /* LaunchScreen.storyboard */,
+				A1A165AB1CD7370100A39E9D /* Assets.xcassets */,
 				A1A165B01CD7370100A39E9D /* Info.plist */,
 				A1A165A81CD7370100A39E9D /* Chamber_Time.xcdatamodeld */,
 			);
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C272DC1CD8BAD4003018A1 /* FindingViewController.swift in Sources */,
 				A1A165A41CD7370100A39E9D /* ViewController.swift in Sources */,
 				A1A165A21CD7370100A39E9D /* AppDelegate.swift in Sources */,
 				A1A165AA1CD7370100A39E9D /* Chamber_Time.xcdatamodeld in Sources */,
@@ -254,10 +258,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Chamber Time/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.edu.nju.Chamber-Time";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -266,10 +273,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Chamber Time/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.edu.nju.Chamber-Time";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
