@@ -11,12 +11,31 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    let filePath = NSHomeDirectory() + "/Documents/data.txt"
+    
+    
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if(tasks == nil) {
+            print("从归档中提取数据")
+            //tasks = NSKeyedUnarchiver.unarchiveObjectWithFile(String(fileURL)) as? NSMutableArray
+            tasks = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? NSMutableArray
+            if(tasks == nil) {
+                //暂时没有归档，创建空数组
+                tasks = NSMutableArray()
+                print("new tasks")
+            }
+            //tasks = (tasksNS as! AnyObject) as? [ToDoTask]
+        }
+        
+        print(filePath)
+        print("did finish launch")
+        
         return true
     }
 
@@ -28,6 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+         print("保存任务列表并存档")
+         NSKeyedArchiver.archiveRootObject(tasks!, toFile: filePath)        //保存任务列表，存档
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -41,6 +62,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+        
+        //NSKeyedArchiver.archiveRootObject(tasks!, toFile: String(fileURL))
+        NSKeyedArchiver.archiveRootObject(tasks!, toFile: filePath)
+        
+        print("will terminate")
+        
         self.saveContext()
     }
 

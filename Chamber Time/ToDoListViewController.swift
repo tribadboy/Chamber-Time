@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ToDoListViewController: UITableViewController {
     
     
@@ -41,7 +42,7 @@ class ToDoListViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tasks.count
+        return tasks!.count
     }
     
     
@@ -50,14 +51,14 @@ class ToDoListViewController: UITableViewController {
         
         // Configure the cell...
         //cell.textLabel?.text = foodList[indexPath.row]
-        let task = tasks[indexPath.row] as ToDoTask
+        let task = tasks![indexPath.row] as! ToDoTask
         
         let imageView = cell.viewWithTag(101) as! UIImageView
         let title = cell.viewWithTag(102) as! UILabel
         let date = cell.viewWithTag(103) as! UILabel
         
-        imageView.image = UIImage(named: task.imageId)
-        title.text = task.title
+        imageView.image = UIImage(named: String(task.imageId))
+        title.text = String(task.title)
         
         let dateFormat = NSDateFormatter.dateFormatFromTemplate("yyyy-MM-dd", options: 0, locale: nil)
         let dateFormatter = NSDateFormatter()
@@ -70,10 +71,24 @@ class ToDoListViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            tasks.removeAtIndex(indexPath.row)
+            //tasks.removeAtIndex(indexPath.row)
+            tasks?.removeObjectAtIndex(indexPath.row)
             //tableView.reloadData()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
+    }
+    
+    //移动cell
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return editing      //处于编辑状态的cell才可移动
+    }
+    
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        //let task = tasks!.removeAtIndex(sourceIndexPath.row)
+        let task = tasks?.objectAtIndex(sourceIndexPath.row)
+        tasks?.removeObjectAtIndex(sourceIndexPath.row)
+        //tasks!.insert(task, atIndex: destinationIndexPath.row)
+        tasks?.insertObject(task!, atIndex: destinationIndexPath.row)
     }
     
     override func setEditing(editing: Bool, animated: Bool) {
@@ -83,13 +98,25 @@ class ToDoListViewController: UITableViewController {
     
     @IBAction func exitToList(sender: UIStoryboardSegue) {
         print("closed")
-        let newTask: ToDoTask? = (sender.sourceViewController as? TaskDetailViewController)?.newTask
+        self.tableview.reloadData()
+        //let newTask: ToDoTask? = (sender.sourceViewController as? TaskDetailViewController)?.newTask
         
-        if newTask != nil {
-            tasks.append(newTask!)
-            self.tableview.reloadData()
+       // if newTask != nil {
+       //     tasks.append(newTask!)
+       //     self.tableview.reloadData()
+       // }
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "EditTask") {
+            let destVC = segue.destinationViewController as! UINavigationController
+            let taskVC = destVC.childViewControllers[0] as! TaskDetailViewController
+            let indexPath = self.tableview.indexPathForSelectedRow
+            if let index = indexPath?.row {
+                taskVC.newTask = tasks![index] as! ToDoTask
+            }
         }
-        
     }
     
 

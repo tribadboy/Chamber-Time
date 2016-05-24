@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class TaskDetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBAction func xuexiTapped(sender: UIButton) {
@@ -53,15 +55,28 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UITextVie
     
     
     var newTask: ToDoTask?
+    //var newTaskFlag: Bool = true
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(sender === saveButton){
-            let id = NSUUID().UUIDString
-            let imageId = typeNameLabel.text
-            let title = task.text
-            let taskDate = date.date
-            let taskDesc = desp.text
-            newTask = ToDoTask(id: id, imageId: imageId!, title: title!, date: taskDate, desc: taskDesc)
+            if(newTask == nil) {        //创建一个新任务并保存
+                let id = NSUUID().UUIDString
+                let imageId = typeNameLabel.text
+                let title = task.text
+                let taskDate = date.date
+                let taskDesc = desp.text
+                newTask = ToDoTask(id: id, imageId: imageId!, title: title!, date: taskDate, desc: taskDesc)
+                //tasks!.append(newTask!)
+                tasks!.addObject(newTask!)
+                print(tasks!.count)
+            }
+            else {                      //对原有任务修改并保存
+                newTask?.imageId = typeNameLabel.text!
+                newTask?.title = task.text!
+                newTask?.date = date.date
+                newTask!.desc = desp.text
+                print(tasks!.count)
+            }
         }
     }
     
@@ -71,6 +86,25 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UITextVie
         // Do any additional setup after loading the view.
         task.delegate = self
         desp.delegate = self
+        
+        if(newTask == nil) {
+            navigationItem.title = "新建任务"
+            typeNameLabel.text = "工作"
+            task.text = "请输入任务的标题"
+            date.date = NSDate()
+            desp.text = "请输入任务的简介,任务类型可以通过图片按钮进行选择"
+            //newTaskFlag = true
+            
+        }
+        else {
+            navigationItem.title = "修改任务"
+            typeNameLabel.text = String(newTask!.imageId)
+            task.text = String(newTask!.title)
+            date.setDate((newTask!.date)!, animated: false)
+            desp.text = String(newTask!.desc)
+            //newTaskFlag = false
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
