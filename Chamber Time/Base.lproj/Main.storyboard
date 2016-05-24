@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="K6E-VC-g7R">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="K6E-VC-g7R">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--我的日历-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Chamber_Time" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalendarViewController" customModule="Chamber_Time" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,13 +17,231 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.86997348070144653" green="0.92464011907577515" blue="0.63751089572906494" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.85654705762863159" green="0.95434373617172241" blue="0.80950528383255005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9z1-5c-aDu"/>
+                    <navigationItem key="navigationItem" title="我的日历" id="9z1-5c-aDu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2310" y="-795"/>
+            <point key="canvasLocation" x="2281" y="-741"/>
+        </scene>
+        <!--我的日程-->
+        <scene sceneID="nCj-DB-Obh">
+            <objects>
+                <tableViewController id="2m7-ff-bAe" customClass="ToDoListViewController" customModule="Chamber_Time" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7pH-ce-0fq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.75264453887939453" green="0.88872015476226807" blue="0.94303125143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.74167925119400024" green="0.94160407781600952" blue="0.83839714527130127" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="44" id="267-K7-dhO">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="267-K7-dhO" id="378-s5-XCO">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="CsH-9i-7bT">
+                                            <rect key="frame" x="22" y="0.0" width="50" height="43"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1.实验项目" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyp-hM-rvU">
+                                            <rect key="frame" x="93" y="0.0" width="162" height="43"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2016年7月14日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhW-Ez-mY3">
+                                            <rect key="frame" x="299" y="0.0" width="293" height="43"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2m7-ff-bAe" id="AQQ-Rt-E9N"/>
+                            <outlet property="delegate" destination="2m7-ff-bAe" id="nyH-I8-JlR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="我的日程" id="njl-QJ-pRi">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0dV-hW-lN0">
+                            <connections>
+                                <segue destination="gdy-46-Tr0" kind="showDetail" id="usf-B3-OA6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableview" destination="7pH-ce-0fq" id="PZj-XM-aj4"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1DZ-WZ-BvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2195" y="-88"/>
+        </scene>
+        <!--新的任务-->
+        <scene sceneID="Fj6-gK-Z7c">
+            <objects>
+                <viewController id="Qgb-jN-JXK" customClass="TaskDetailViewController" customModule="Chamber_Time" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AoB-hp-09f"/>
+                        <viewControllerLayoutGuide type="bottom" id="2RQ-nG-inG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yns-lY-yD5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="事件名称：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cf-Of-Gvh">
+                                <rect key="frame" x="20" y="274" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="岗位电话面试" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WON-yM-fan">
+                                <rect key="frame" x="248" y="270" width="105" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工作" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqe-bf-VyK">
+                                <rect key="frame" x="283" y="209" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXy-9B-ElJ">
+                                <rect key="frame" x="20" y="194" width="60" height="60"/>
+                                <state key="normal" backgroundImage="电脑"/>
+                                <connections>
+                                    <action selector="diannaoTapped:" destination="Qgb-jN-JXK" eventType="touchUpInside" id="oEv-vT-Dhc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaK-x0-01c">
+                                <rect key="frame" x="520" y="194" width="60" height="60"/>
+                                <state key="normal" backgroundImage="约会"/>
+                                <connections>
+                                    <action selector="yuehuiTapped:" destination="Qgb-jN-JXK" eventType="touchUpInside" id="0gt-Ox-ZYo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Cz-bh-ymY">
+                                <rect key="frame" x="20" y="129" width="60" height="60"/>
+                                <state key="normal" backgroundImage="居家"/>
+                                <connections>
+                                    <action selector="jujjiaTapped:" destination="Qgb-jN-JXK" eventType="touchUpInside" id="zLa-Dk-FHA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ja6-3l-KN4">
+                                <rect key="frame" x="270" y="129" width="60" height="60"/>
+                                <state key="normal" backgroundImage="工作"/>
+                                <connections>
+                                    <action selector="gongzuoTapped:" destination="Qgb-jN-JXK" eventType="touchUpInside" id="imR-je-lHS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nc-fc-HAo">
+                                <rect key="frame" x="520" y="129" width="60" height="60"/>
+                                <state key="normal" backgroundImage="电话"/>
+                                <connections>
+                                    <action selector="dianhuaTapped:" destination="Qgb-jN-JXK" eventType="touchUpInside" id="tkw-EI-zQo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8a-mA-eh8">
+                                <rect key="frame" x="520" y="64" width="60" height="60"/>
+                                <state key="normal" backgroundImage="娱乐"/>
+                                <connections>
+                                    <action selector="yuleTapped:" destination="Qgb-jN-JXK" eventType="touchUpInside" id="kUn-3C-Uiy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7g-ag-vHy">
+                                <rect key="frame" x="270" y="64" width="60" height="60"/>
+                                <state key="normal" backgroundImage="旅行"/>
+                                <connections>
+                                    <action selector="lvxingTapped:" destination="Qgb-jN-JXK" eventType="touchUpInside" id="RU2-x0-a6M"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjC-V0-NdM">
+                                <rect key="frame" x="20" y="64" width="60" height="60"/>
+                                <state key="normal" backgroundImage="学习"/>
+                                <connections>
+                                    <action selector="xuexiTapped:" destination="Qgb-jN-JXK" eventType="touchUpInside" id="iVx-FV-e7u"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bFE-Ty-irv">
+                                <rect key="frame" x="20" y="330" width="560" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="P0h-p3-JVd"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="485729946.13296002">
+                                    <!--2016-05-23 20:59:06 +0000-->
+                                </date>
+                            </datePicker>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="某某公司的人力资源主管约在几时几分电话面试，务必做好准备。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c13-Sw-sjg">
+                                <rect key="frame" x="20" y="520" width="560" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="soP-6m-D8A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="k8a-mA-eh8" firstAttribute="top" secondItem="AoB-hp-09f" secondAttribute="bottom" id="1gj-0E-Kr8"/>
+                            <constraint firstItem="4Cz-bh-ymY" firstAttribute="leading" secondItem="Yns-lY-yD5" secondAttribute="leadingMargin" id="4HF-eK-Yoh"/>
+                            <constraint firstItem="WXy-9B-ElJ" firstAttribute="leading" secondItem="Yns-lY-yD5" secondAttribute="leadingMargin" id="5IA-vt-8Ax"/>
+                            <constraint firstItem="yjC-V0-NdM" firstAttribute="top" secondItem="AoB-hp-09f" secondAttribute="bottom" id="5Px-6O-M81"/>
+                            <constraint firstItem="f7g-ag-vHy" firstAttribute="top" secondItem="AoB-hp-09f" secondAttribute="bottom" id="6q7-GP-6IS"/>
+                            <constraint firstItem="WXy-9B-ElJ" firstAttribute="top" secondItem="4Cz-bh-ymY" secondAttribute="bottom" constant="5" id="9Sj-Ac-1HM"/>
+                            <constraint firstItem="Ja6-3l-KN4" firstAttribute="top" secondItem="f7g-ag-vHy" secondAttribute="bottom" constant="5" id="EI4-YH-Khh"/>
+                            <constraint firstItem="bFE-Ty-irv" firstAttribute="top" secondItem="WON-yM-fan" secondAttribute="bottom" constant="30" id="Fx5-6V-WQD"/>
+                            <constraint firstItem="WON-yM-fan" firstAttribute="centerX" secondItem="Yns-lY-yD5" secondAttribute="centerX" id="NAj-yg-bD6"/>
+                            <constraint firstItem="7nc-fc-HAo" firstAttribute="trailing" secondItem="Yns-lY-yD5" secondAttribute="trailingMargin" id="O2a-in-9qT"/>
+                            <constraint firstItem="4Cz-bh-ymY" firstAttribute="top" secondItem="yjC-V0-NdM" secondAttribute="bottom" constant="5" id="OmW-4d-435"/>
+                            <constraint firstItem="bFE-Ty-irv" firstAttribute="trailing" secondItem="Yns-lY-yD5" secondAttribute="trailingMargin" id="QIR-Vn-6N3"/>
+                            <constraint firstItem="k8a-mA-eh8" firstAttribute="trailing" secondItem="Yns-lY-yD5" secondAttribute="trailingMargin" id="T5f-bF-OVZ"/>
+                            <constraint firstItem="Ja6-3l-KN4" firstAttribute="centerX" secondItem="Yns-lY-yD5" secondAttribute="centerX" id="Wkl-UV-4A6"/>
+                            <constraint firstItem="f7g-ag-vHy" firstAttribute="centerX" secondItem="Yns-lY-yD5" secondAttribute="centerX" id="X9q-44-NsO"/>
+                            <constraint firstItem="aqe-bf-VyK" firstAttribute="top" secondItem="Ja6-3l-KN4" secondAttribute="bottom" constant="20" id="XkT-2Z-0XU"/>
+                            <constraint firstItem="yjC-V0-NdM" firstAttribute="leading" secondItem="Yns-lY-yD5" secondAttribute="leadingMargin" id="ca9-Ys-A9n"/>
+                            <constraint firstItem="9cf-Of-Gvh" firstAttribute="top" secondItem="WXy-9B-ElJ" secondAttribute="bottom" constant="20" id="ctX-I2-f92"/>
+                            <constraint firstItem="9cf-Of-Gvh" firstAttribute="leading" secondItem="Yns-lY-yD5" secondAttribute="leadingMargin" id="dzo-hd-t22"/>
+                            <constraint firstItem="BaK-x0-01c" firstAttribute="trailing" secondItem="Yns-lY-yD5" secondAttribute="trailingMargin" id="fZq-Oc-TIN"/>
+                            <constraint firstItem="aqe-bf-VyK" firstAttribute="centerX" secondItem="Yns-lY-yD5" secondAttribute="centerX" id="g0J-xV-JAr"/>
+                            <constraint firstItem="WON-yM-fan" firstAttribute="top" secondItem="aqe-bf-VyK" secondAttribute="bottom" constant="40" id="in5-5l-Ud9"/>
+                            <constraint firstItem="bFE-Ty-irv" firstAttribute="leading" secondItem="Yns-lY-yD5" secondAttribute="leadingMargin" id="iu7-ot-CJ6"/>
+                            <constraint firstItem="BaK-x0-01c" firstAttribute="top" secondItem="7nc-fc-HAo" secondAttribute="bottom" constant="5" id="kwr-i7-bnu"/>
+                            <constraint firstItem="c13-Sw-sjg" firstAttribute="top" secondItem="bFE-Ty-irv" secondAttribute="bottom" constant="10" id="qQK-zS-OSu"/>
+                            <constraint firstItem="c13-Sw-sjg" firstAttribute="trailing" secondItem="Yns-lY-yD5" secondAttribute="trailingMargin" id="sp4-cB-4Pc"/>
+                            <constraint firstItem="c13-Sw-sjg" firstAttribute="leading" secondItem="Yns-lY-yD5" secondAttribute="leadingMargin" id="uq9-8d-TeE"/>
+                            <constraint firstItem="7nc-fc-HAo" firstAttribute="top" secondItem="k8a-mA-eh8" secondAttribute="bottom" constant="5" id="z6p-XD-Vd9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="新的任务" id="v1N-Jh-IHi">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="suv-8t-Bh8">
+                            <connections>
+                                <segue destination="RQP-tk-4f2" kind="unwind" unwindAction="exitToList:" id="nQR-Gt-wGL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vJu-3r-VHO">
+                            <connections>
+                                <segue destination="RQP-tk-4f2" kind="unwind" unwindAction="exitToList:" id="Qp9-oA-S91"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="date" destination="bFE-Ty-irv" id="Qhm-j9-p6U"/>
+                        <outlet property="desp" destination="c13-Sw-sjg" id="e6A-Ms-Bfq"/>
+                        <outlet property="saveButton" destination="vJu-3r-VHO" id="Cbw-CX-pFc"/>
+                        <outlet property="task" destination="WON-yM-fan" id="1hW-S6-0Qe"/>
+                        <outlet property="typeNameLabel" destination="aqe-bf-VyK" id="4MC-dX-uSZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KSS-2Y-Hwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RQP-tk-4f2" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3609" y="-16"/>
         </scene>
         <!--发现-->
         <scene sceneID="87b-U5-Zkp">
@@ -145,25 +363,6 @@
             </objects>
             <point key="canvasLocation" x="2041" y="609"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="3fD-36-K94">
-            <objects>
-                <viewController id="5WM-Wv-yqJ" customClass="ViewController" customModule="Chamber_Time" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OMl-RB-dhb"/>
-                        <viewControllerLayoutGuide type="bottom" id="ds8-Ad-Wx2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="XMC-mx-0mg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.65320134162902832" green="0.92458218336105347" blue="0.90169423818588257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Ycn-TV-Owc"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M8k-Fc-17f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2282" y="-104"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XPN-Y5-H0g">
             <objects>
@@ -214,18 +413,46 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="5WM-Wv-yqJ" kind="relationship" relationship="rootViewController" id="PuL-1a-Kje"/>
+                        <segue destination="2m7-ff-bAe" kind="relationship" relationship="rootViewController" id="1wB-yB-pQW"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wRe-t0-EpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1470" y="-104"/>
+            <point key="canvasLocation" x="1482" y="-94"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4So-0f-mey">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gdy-46-Tr0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="UN4-sd-aNR"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tNP-5z-l7W">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qgb-jN-JXK" kind="relationship" relationship="rootViewController" id="AAt-as-Iwb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gCx-kf-81y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3035" y="-31"/>
         </scene>
     </scenes>
     <resources>
+        <image name="1" width="60" height="60"/>
         <image name="12-eye" width="24" height="16"/>
         <image name="35-shopping-bag" width="24" height="22"/>
         <image name="83-calendar" width="23" height="25"/>
         <image name="weather" width="150" height="150"/>
+        <image name="娱乐" width="60" height="60"/>
+        <image name="学习" width="60" height="60"/>
+        <image name="居家" width="60" height="60"/>
+        <image name="工作" width="60" height="60"/>
+        <image name="旅行" width="60" height="60"/>
+        <image name="电脑" width="60" height="60"/>
+        <image name="电话" width="60" height="60"/>
+        <image name="约会" width="60" height="60"/>
     </resources>
 </document>

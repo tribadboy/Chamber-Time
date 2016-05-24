@@ -96,7 +96,11 @@ class FindingViewController: UIViewController, CLLocationManagerDelegate {
         let task = urlSession.dataTaskWithURL(url!){
             (data, response, error) -> Void in
             if error != nil {
-                print("url error, \(error)\n")
+                print("url  print("url error, \(error)\n")
+                self.location.text = "天气信息暂时无法使用"
+                self.temperature.text = nil
+                self.loadingIndicator.stopAnimating()
+                self.loadingIndicator.hidden = true, \(error)\n"
                 return
             } else {
                 let httpResponse = response as! NSHTTPURLResponse
@@ -128,7 +132,8 @@ class FindingViewController: UIViewController, CLLocationManagerDelegate {
                     NSJSONReadingOptions.AllowFragments) as! NSDictionary
                 print(json.description)
                 self.updateJsonData(json)
-            }        }
+            }
+        }
     }
     
     func updateJsonData(jsonResult: NSDictionary!) {
