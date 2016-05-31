@@ -27,6 +27,20 @@ class CalendarView: UIView ,CalendarContentViewDelegate{
         self.contentView = contentView
         self.contentView.delegate = self
         self.addSubview(contentView)
+        
+        let taskDate = UILabel()
+        self.taskDate = taskDate
+        self.addSubview(taskDate)
+        
+        let taskListView = UITextView()
+        taskListView.editable = false
+        taskListView.backgroundColor = UIColor(red: 215/255.0, green: 235/255.0, blue: 230/255.0, alpha: 0.9)
+        self.taskListView = taskListView
+        
+        let today: NSDate = NSDate()
+        setTextView(today.getYear(), month: today.getMonth(), day: today.getDay())
+        taskListView.font = taskListView.font?.fontWithSize(16)
+        self.addSubview(taskListView)
     }
     class func show(view : UIView , frame : CGRect,selectDate : selectClosure)->CalendarView{
         let calendarView = CalendarView(frame: frame)
@@ -53,7 +67,16 @@ class CalendarView: UIView ,CalendarContentViewDelegate{
         
         self.contentView.frame.origin.y = 50
         self.contentView.frame.size.width = self.frame.size.width
-        self.contentView.frame.size.height = self.frame.size.height - 50
+        self.contentView.frame.size.height = 200
+        
+        self.taskDate.frame.origin.y = 270
+        self.taskDate.frame.size.width = self.frame.size.width
+        self.taskDate.frame.size.height = 30
+        self.taskDate.textAlignment = NSTextAlignment.Center
+        self.taskListView.frame.origin.y = 300
+        self.taskListView.frame.size.width = self.frame.size.width
+        self.taskListView.frame.size.height = 200
+        
     }
     //MARK:     CalendarContentViewDelegate
     func calendarContentViewCurrentDate(date: NSDate) {
@@ -70,6 +93,41 @@ class CalendarView: UIView ,CalendarContentViewDelegate{
     var tempclosure : selectClosure?
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    var taskDate: UILabel!
+    var taskListView : UITextView!
+    
+    func setTextView(year: Int, month: Int,day: Int) {
+        taskDate.text = "" +  String(month) + "月" +  String(day) + "日"
+        var text: String = ""
+        if tasks?.count > 0 {
+            for index in 0...((tasks?.count)!-1) {
+                let task: ToDoTask = (tasks?.objectAtIndex(index))! as! ToDoTask
+                let taskDate = task.date
+                if year == taskDate?.getYear() && month == taskDate?.getMonth()
+                    && day == taskDate?.getDay() {
+                    text += NSDate.getFormatDateString_HHmm(taskDate!) + "  " + ((task.title)! as String) + "\n\t" + (task.desc as String)  + "\n\n"
+                
+                }
+                
+            }
+        }
+        if(text == "") {
+            let today: NSDate = NSDate()
+            if(year == today.getYear() && month == today.getMonth() && day == today.getDay()) {
+                text = "今日没有任务安排，尽情享受闲暇的时光吧！"
+            } else {
+                text = "该日期暂未安排任何任务!"
+            }
+            
+        }
+        taskListView.text = text
+    }
+    
+    func clearTextView() {
+        taskDate.text = nil
+        taskListView = nil
     }
     
     

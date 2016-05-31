@@ -23,6 +23,7 @@ class CalendarContentView: UIView,UICollectionViewDataSource,UICollectionViewDel
         super.init(frame: frame)
         self.addSubview(collectionView)
         getData(NSDate())
+        
     }
     func getData(date : NSDate) {
         self.dataArr.removeAllObjects()
@@ -44,6 +45,7 @@ class CalendarContentView: UIView,UICollectionViewDataSource,UICollectionViewDel
         let date = self.dataArr[indexPath.row] as! NSDate
         cell.date = date
         cell.delegate = self
+        
         return cell
     }
     func CalendarCellSelectDate(year: Int, month: Int, day: Int) {
@@ -104,6 +106,7 @@ class CalendarContentView: UIView,UICollectionViewDataSource,UICollectionViewDel
         layout.scrollDirection = .Horizontal
         layout.minimumInteritemSpacing=0
         layout.minimumLineSpacing=0
+        
         return view
     }()
     var delegate : CalendarContentViewDelegate?

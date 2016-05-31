@@ -9,22 +9,34 @@
 import UIKit
 
 class CalendarViewController: UIViewController ,CalendarViewDelegate{
-
+    
+    var calendarView: CalendarView?
+    var selectYear:Int = NSDate().getYear()
+    var selectMonth:Int = NSDate().getMonth()
+    var selectDay:Int = NSDate().getDay()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let view = CalendarView()
-        view.frame = CGRectMake(0, 100, self.view.bounds.size.width, 250)
+        self.calendarView = CalendarView()
+        let view = self.calendarView
+        view!.frame = CGRectMake(0, 100, self.view.bounds.size.width, 600)
         //view.titleColor = UIColor.blueColor()
-        view.delegate = self
-        self.view.addSubview(view)
+        view!.delegate = self
+        self.view.addSubview(view!)
         
+        //self.view.reloadInputViews()
         // CalendarView.show(self.view, frame: CGRectMake(0, 100, self.view.bounds.size.width, 250)) { (year, month, day) -> Void in
         //      print("\(year)-\(month)-\(day)")
         //}
     }
     //点击选择日期功能
     func CalendarViewSelectDate(year: Int, month: Int, day: Int) {
-        print("\(year)-\(month)-\(day)")
+        self.selectYear = year;
+        self.selectMonth = month
+        self.selectDay = day
+        print("select day: \(year)-\(month)-\(day)")
+        self.calendarView?.setTextView(year, month: month, day: day)
+        calendarView?.reloadInputViews()
     }
 
     override func didReceiveMemoryWarning() {

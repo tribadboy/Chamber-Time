@@ -168,5 +168,23 @@ extension NSDate {
         
         return [date.getLastDate().getLastDate(),date.getLastDate(),date,date.getNextDate(),date.getNextDate().getNextDate()]
     }
+    
+    class func isEqualDateyyyyMMdd(date1: NSDate, date2: NSDate) -> Int {
+        print(date1.getDay())
+        print(date2.getDay())
+        if(date1.getYear() == date2.getYear() &&
+            date1.getMonth() == date2.getMonth() &&
+            date1.getDay() == date2.getDay()) {
+            return 1
+        }
+        return 0
+    }
+    
+    class func getFormatDateString_HHmm(date: NSDate) ->String {
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        return  dateFormatter.stringFromDate(date)
+    }
 }
 

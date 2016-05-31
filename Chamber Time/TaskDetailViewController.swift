@@ -92,7 +92,7 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UITextVie
             typeNameLabel.text = "工作"
             task.text = "请输入任务的标题"
             date.date = NSDate()
-            desp.text = "请输入任务的简介,任务类型可以通过图片按钮进行选择"
+            desp.text = "请输入任务简介,任务类型可以通过图片按钮进行选择"
             //newTaskFlag = true
             
         }
