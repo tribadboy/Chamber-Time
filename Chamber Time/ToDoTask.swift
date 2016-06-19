@@ -8,9 +8,6 @@
 
 import UIKit
 
-//let sp = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-//let fileURL = NSURL(fileURLWithPath: "\(sp[0])/data.text")
-
 var tasks: NSMutableArray?
 
 /*
@@ -22,31 +19,6 @@ var tasks : [ToDoTask] = [ToDoTask(id: "1", imageId: "学习", title: "完成软
 ]
  */
 
-/*
-class ToDoTask: NSObject {
-    var id: String
-    var imageId: String
-    var title: String
-    var date: NSDate
-    var desc: String
-    
-    init (id:String, imageId: String, title: String , date: NSDate, desc: String) {
-        self.id = id
-        self.imageId = imageId
-        self.title = title
-        self.date = date
-        self.desc = desc
-    }
-    
-    init (id:String, imageId: String, title: String , date: NSDate) {
-        self.id = id
-        self.imageId = imageId
-        self.title = title
-        self.date = date
-        self.desc = ""
-    }
-}
- */
 
 class ToDoTask: NSObject, NSCoding {
     var id: NSString!

@@ -90,9 +90,9 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UITextVie
         if(newTask == nil) {
             navigationItem.title = "新建任务"
             typeNameLabel.text = "工作"
-            task.text = "请输入任务的标题"
+            task.text = "任务标题"
             date.date = NSDate()
-            desp.text = "请输入任务简介,任务类型可以通过图片按钮进行选择"
+            desp.text = "请输入任务简介"
             //newTaskFlag = true
             
         }
@@ -128,7 +128,7 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UITextVie
     //textView被编辑前，视图总框架上移
     func textViewDidBeginEditing(textView: UITextView) {
         UIView.animateWithDuration(0.3, animations: {
-            self.view.frame.origin.y = -100
+            self.view.frame.origin.y = -250
         })
     }
     
